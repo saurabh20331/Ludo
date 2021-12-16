@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="675.0" prefWidth="819.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ludo.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Pane prefHeight="651.0" prefWidth="876.0">
+         <children>
+            <ImageView fx:id="ludoBoard" fitHeight="602.0" fitWidth="720.0" layoutX="89.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@ludo.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blue1" fitHeight="50.0" fitWidth="33.0" layoutX="159.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@blueToken.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blue2" fitHeight="50.0" fitWidth="33.0" layoutX="159.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@blueToken.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blue3" fitHeight="50.0" fitWidth="33.0" layoutX="238.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@blueToken.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blue4" fitHeight="50.0" fitWidth="33.0" layoutX="238.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@blueToken.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="green1" fitHeight="50.0" fitWidth="44.0" layoutX="504.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@greenToken.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="green4" fitHeight="50.0" fitWidth="44.0" layoutX="504.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@greenToken.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="green3" fitHeight="50.0" fitWidth="44.0" layoutX="584.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@greenToken.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="green2" fitHeight="50.0" fitWidth="44.0" layoutX="584.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@greenToken.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="dice1" fitHeight="86.0" fitWidth="85.0" layoutX="14.0" layoutY="454.0" onMouseClicked="#dice1Clicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@dice1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="dice2" fitHeight="86.0" fitWidth="85.0" layoutX="680.0" layoutY="33.0" onMouseClicked="#dice2Clicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@dice2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</VBox>
