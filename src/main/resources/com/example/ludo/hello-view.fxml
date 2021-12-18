@@ -18,42 +18,42 @@
                   <Image url="@ludo.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="blue1" fitHeight="50.0" fitWidth="33.0" layoutX="159.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="blue1" fitHeight="50.0" fitWidth="33.0" layoutX="159.0" layoutY="414.0" onMouseClicked="#blue1Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@blueToken.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blue2" fitHeight="50.0" fitWidth="33.0" layoutX="159.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="blue2" fitHeight="50.0" fitWidth="33.0" layoutX="159.0" layoutY="490.0" onMouseClicked="#blue2Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@blueToken.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blue3" fitHeight="50.0" fitWidth="33.0" layoutX="238.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="blue3" fitHeight="50.0" fitWidth="33.0" layoutX="238.0" layoutY="490.0" onMouseClicked="#blue3Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@blueToken.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blue4" fitHeight="50.0" fitWidth="33.0" layoutX="238.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="blue4" fitHeight="50.0" fitWidth="33.0" layoutX="238.0" layoutY="414.0" onMouseClicked="#blue4Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@blueToken.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="green1" fitHeight="50.0" fitWidth="44.0" layoutX="504.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="green1" fitHeight="50.0" fitWidth="44.0" layoutX="504.0" layoutY="68.0" onMouseClicked="#green1Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@greenToken.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="green4" fitHeight="50.0" fitWidth="44.0" layoutX="504.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="green4" fitHeight="50.0" fitWidth="44.0" layoutX="504.0" layoutY="140.0" onMouseClicked="#green4Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@greenToken.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="green3" fitHeight="50.0" fitWidth="44.0" layoutX="584.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="green3" fitHeight="50.0" fitWidth="44.0" layoutX="584.0" layoutY="140.0" onMouseClicked="#green3Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@greenToken.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="green2" fitHeight="50.0" fitWidth="44.0" layoutX="584.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="green2" fitHeight="50.0" fitWidth="44.0" layoutX="584.0" layoutY="68.0" onMouseClicked="#green2Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@greenToken.png" />
                </image>

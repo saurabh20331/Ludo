@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Dice implements Runnable{
 
-    private final ImageView dice;
+    public final ImageView dice;
     Dice(ImageView dice){
         this.dice = dice;
     }

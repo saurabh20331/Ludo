@@ -1,5 +1,6 @@
 package com.example.ludo;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -51,30 +52,70 @@ public class HelloController {
     public void initialize(){
         blueDice = new Dice(dice1);
         greenDice = new Dice(dice2);
-        dice1.setDisable(false);
-        dice2.setDisable(true);
+
         greenToken = new Token[4];
         blueToken = new Token[4];
 
-        greenToken[0] = new Token(green1);
-        greenToken[1] = new Token(green2);
-        greenToken[2] = new Token(green3);
-        greenToken[3] = new Token(green4);
+        greenToken[0] = new Token(green1, "green");
+        greenToken[1] = new Token(green2, "green");
+        greenToken[2] = new Token(green3, "green");
+        greenToken[3] = new Token(green4, "green");
 
-        blueToken[0] = new Token(blue1);
-        blueToken[1] = new Token(blue2);
-        blueToken[2] = new Token(blue3);
-        blueToken[3] = new Token(blue4);
+        blueToken[0] = new Token(blue1, "blue");
+        blueToken[1] = new Token(blue2, "blue");
+        blueToken[2] = new Token(blue3, "blue");
+        blueToken[3] = new Token(blue4, "blue");
 
         greenPlayer = new Player(greenToken);
         bluePlayer = new Player(blueToken);
 
+        ChangeTurn turn = new ChangeTurn(blueDice, greenDice, bluePlayer, greenPlayer);
+        turn.enableDisable(true, false, false, false);
+
+        greenPlayer.turnAdd(turn);
+        bluePlayer.turnAdd(turn);
+
         blueDice.playerAssociation(bluePlayer);
         greenDice.playerAssociation(greenPlayer);
-
-
-
     }
 
+    public void blue1Clicked(MouseEvent mouseEvent) {
+        Thread th = new Thread(blueToken[0]);
+        th.start();
+    }
 
+    public void blue2Clicked(MouseEvent mouseEvent) {
+        Thread th = new Thread(blueToken[1]);
+        th.start();
+    }
+
+    public void blue3Clicked(MouseEvent mouseEvent) {
+        Thread th = new Thread(blueToken[2]);
+        th.start();
+    }
+
+    public void blue4Clicked(MouseEvent mouseEvent) {
+        Thread th = new Thread(blueToken[3]);
+        th.start();
+    }
+
+    public void green1Clicked(MouseEvent mouseEvent) {
+        Thread th = new Thread(greenToken[0]);
+        th.start();
+    }
+
+    public void green4Clicked(MouseEvent mouseEvent) {
+        Thread th = new Thread(greenToken[3]);
+        th.start();
+    }
+
+    public void green3Clicked(MouseEvent mouseEvent) {
+        Thread th = new Thread(greenToken[2]);
+        th.start();
+    }
+
+    public void green2Clicked(MouseEvent mouseEvent) {
+        Thread th = new Thread(greenToken[1]);
+        th.start();
+    }
 }
