@@ -2,6 +2,7 @@ package com.example.ludo;
 
 import javafx.util.Pair;
 import java.util.ArrayList;
+import java.util.List;
 
 public class BoardCoordinates {
 
@@ -39,4 +40,7 @@ public class BoardCoordinates {
         createBlocks(2, -sizeOfBlock, 0);
 
     }
+
+    ArrayList<Integer> safePlaces = new ArrayList<Integer>(List.of(0, 8, 13, 21, 26, 34, 39, 47));
+
 }

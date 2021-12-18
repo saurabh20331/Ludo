@@ -56,15 +56,15 @@ public class HelloController {
         greenToken = new Token[4];
         blueToken = new Token[4];
 
-        greenToken[0] = new Token(green1, "green");
-        greenToken[1] = new Token(green2, "green");
-        greenToken[2] = new Token(green3, "green");
-        greenToken[3] = new Token(green4, "green");
+        greenToken[0] = new Token(green1, "green", green1.getLayoutX(), green1.getLayoutY());
+        greenToken[1] = new Token(green2, "green", green2.getLayoutX(), green2.getLayoutY());
+        greenToken[2] = new Token(green3, "green", green3.getLayoutX(), green3.getLayoutY());
+        greenToken[3] = new Token(green4, "green", green4.getLayoutX(), green4.getLayoutY());
 
-        blueToken[0] = new Token(blue1, "blue");
-        blueToken[1] = new Token(blue2, "blue");
-        blueToken[2] = new Token(blue3, "blue");
-        blueToken[3] = new Token(blue4, "blue");
+        blueToken[0] = new Token(blue1, "blue", blue1.getLayoutX(), blue1.getLayoutY());
+        blueToken[1] = new Token(blue2, "blue", blue2.getLayoutX(), blue2.getLayoutY());
+        blueToken[2] = new Token(blue3, "blue", blue3.getLayoutX(), blue3.getLayoutY());
+        blueToken[3] = new Token(blue4, "blue", blue4.getLayoutX(), blue4.getLayoutY());
 
         greenPlayer = new Player(greenToken);
         bluePlayer = new Player(blueToken);
