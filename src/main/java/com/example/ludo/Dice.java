@@ -23,7 +23,6 @@ public class Dice implements Runnable{
 
         Random rand = new Random();
         int num = rand.nextInt(6) + 1;
-
         FileInputStream[] inputStream = new FileInputStream[6];
 
         for(int i=0; i<6; ++i){

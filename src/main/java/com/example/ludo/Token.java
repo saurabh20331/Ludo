@@ -13,15 +13,18 @@ public class Token implements Runnable{
     int movePos;
     boolean isHome;
     boolean isSafe;
+    boolean isWon;
     boolean isNearEnd;
     ImageView main;
     String color;
     ChangeTurn turn;
+
     Token(ImageView main, String color, double initialPos, double initialYPos){
         this.main = main;
         isHome = true;
         isSafe = true;
         isNearEnd = false;
+        isWon = false;
         this.color = color;
         if(Objects.equals(color, "blue"))
             pos = 0;
@@ -68,8 +71,26 @@ public class Token implements Runnable{
                             ++pos;
                             if(pos == 52)
                                 pos = 0;
-                            main.setLayoutX(b.blocks.get(pos).getKey());
-                            main.setLayoutY(b.blocks.get(pos).getValue());
+                            if(Objects.equals(color, "blue") && pos == 51 || Objects.equals(color, "green") && pos == 25){
+                                pos = 0;
+                                isNearEnd = true;
+                            }
+                            if(isNearEnd){
+                                if(Objects.equals(color, "blue")){
+                                    main.setLayoutX(b.blueWinning.get(pos).getKey());
+                                    main.setLayoutY(b.blueWinning.get(pos).getValue());
+                                }
+                                else{
+                                    main.setLayoutX(b.greenWinning.get(pos).getKey());
+                                    main.setLayoutY(b.greenWinning.get(pos).getValue());
+                                }
+                                if(pos == 5)
+                                    isWon = true;
+                            }
+                            else{
+                                main.setLayoutX(b.blocks.get(pos).getKey());
+                                main.setLayoutY(b.blocks.get(pos).getValue());
+                            }
                         }
                     });
                     try {

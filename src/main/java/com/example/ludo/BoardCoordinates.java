@@ -11,6 +11,9 @@ public class BoardCoordinates {
     int initialY = 515;
 
     ArrayList<Pair<Integer, Integer>> blocks;
+    ArrayList<Pair<Integer, Integer>> blueWinning;
+    ArrayList<Pair<Integer, Integer>> greenWinning;
+
 
     void createBlocks(int times, int xVar, int yVar){
         for(int i=0; i<times; ++i){
@@ -20,6 +23,8 @@ public class BoardCoordinates {
 
     BoardCoordinates(){
         blocks = new ArrayList<>();
+        blueWinning = new ArrayList<>();
+        greenWinning = new ArrayList<>();
         blocks.add(new Pair<>(initialX, initialY));
 
         createBlocks(4, 0, -sizeOfBlock);
@@ -38,6 +43,16 @@ public class BoardCoordinates {
         createBlocks(1, -sizeOfBlock, sizeOfBlock);
         createBlocks(5, 0, sizeOfBlock);
         createBlocks(2, -sizeOfBlock, 0);
+
+        blueWinning.add(new Pair<>(blocks.get(50).getKey(), blocks.get(50).getValue() - sizeOfBlock));
+        for(int i=0; i<5; ++i){
+            blueWinning.add(new Pair<>(blueWinning.get(blueWinning.size()-1).getKey(), blueWinning.get(blueWinning.size()-1).getValue()-sizeOfBlock));
+        }
+
+        greenWinning.add(new Pair<>(blocks.get(24).getKey(), blocks.get(24).getValue() + sizeOfBlock));
+        for(int i=0; i<5; ++i){
+            greenWinning.add(new Pair<>(greenWinning.get(greenWinning.size()-1).getKey(), greenWinning.get(greenWinning.size()-1).getValue()+sizeOfBlock));
+        }
 
     }
 

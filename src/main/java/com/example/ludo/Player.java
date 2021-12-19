@@ -35,7 +35,10 @@ public class Player {
                 tokens[i].enableDisable(true);
                 ++numOfDisabled;
             }
-            //nearEnd
+            else if(tokens[i].isNearEnd && 5-tokens[i].pos < num){
+                tokens[i].enableDisable(true);
+                ++numOfDisabled;
+            }
             else{
                 tokens[i].enableDisable(false);
             }
