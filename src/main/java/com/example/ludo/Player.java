@@ -23,13 +23,14 @@ public class Player {
     void play(int num){
 
         this.diceNo = num;
-
+        int autoMov = -1;
         turn.enableDisable(false, false, false, false);
         int numOfDisabled = 0;
         for(int i=0; i<4; ++i){
             tokens[i].movePos = diceNo;
             if(!tokens[i].isNearEnd && diceNo == 6){
                 tokens[i].enableDisable(false);
+                autoMov = i;
             }
             else if(tokens[i].isHome && diceNo != 6) {
                 tokens[i].enableDisable(true);
@@ -41,6 +42,7 @@ public class Player {
             }
             else{
                 tokens[i].enableDisable(false);
+                autoMov = i;
             }
         }
         if(numOfDisabled == 4){
@@ -50,7 +52,10 @@ public class Player {
             else{
                 turn.enableDisable(true, false, false, false);
             }
-
+        }
+        else if(numOfDisabled == 3){
+            Thread th = new Thread(tokens[autoMov]);
+            th.start();
         }
 
     }
