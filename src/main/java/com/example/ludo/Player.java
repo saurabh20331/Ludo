@@ -23,6 +23,8 @@ public class Player {
 
         int autoMov = -1;
         turn.enableDisable(false, false, false, false);
+        turn.arrow.stopDownAnimation();
+        turn.arrow.stopUpAnimation();
         int numOfDisabled = 0;
         for(int i=0; i<4; ++i){
             tokens[i].movePos = num;
@@ -47,9 +49,13 @@ public class Player {
         }
         if(numOfDisabled == 4){
             if(Objects.equals(this.tokens[0].retColor(), "blue")){
+                turn.arrow.stopDownAnimation();
+                turn.arrow.startUpAnimation();
                 turn.enableDisable(false, true, false, false);
             }
             else{
+                turn.arrow.stopUpAnimation();
+                turn.arrow.startDownAnimation();
                 turn.enableDisable(true, false, false, false);
             }
         }

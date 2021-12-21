@@ -13,6 +13,11 @@
    <children>
       <Pane prefHeight="651.0" prefWidth="876.0">
          <children>
+            <ImageView fitHeight="675.0" fitWidth="831.0" layoutX="-20.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@background.jpg" />
+               </image>
+            </ImageView>
             <ImageView fx:id="ludoBoard" fitHeight="602.0" fitWidth="720.0" layoutX="89.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@ludo.jpg" />
@@ -66,6 +71,16 @@
             <ImageView fx:id="dice2" fitHeight="86.0" fitWidth="85.0" layoutX="680.0" layoutY="98.0" onMouseClicked="#dice2Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@dice2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="arrowDown" fitHeight="106.0" fitWidth="85.0" layoutX="14.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@arrowDown.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="arrowUp" fitHeight="95.0" fitWidth="72.0" layoutX="691.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@arrowUp.png" />
                </image>
             </ImageView>
          </children>

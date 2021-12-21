@@ -181,17 +181,25 @@ public class Token implements Runnable{
 
             //Passing of turn
             if(Objects.equals(this.color, "blue")){
-                if(movePos == 6)
+                if(movePos == 6) {
+                    turn.arrow.startDownAnimation();
                     turn.enableDisable(true, false, false, false);
-                else
+                }
+                else {
+                    turn.arrow.startUpAnimation();
                     turn.enableDisable(false, true, false, false);
+                }
 
             }
             else {
-                if(movePos == 6)
+                if(movePos == 6) {
+                    turn.arrow.startUpAnimation();
                     turn.enableDisable(false, true, false, false);
-                else
+                }
+                else {
+                    turn.arrow.startDownAnimation();
                     turn.enableDisable(true, false, false, false);
+                }
             }
         }
     }

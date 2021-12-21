@@ -10,7 +10,7 @@ import java.util.Random;
 public class Dice implements Runnable{
 
     private final ImageView dice;
-
+    Arrows arrows;
     public ImageView retDice(){
         return dice;
     }
@@ -23,9 +23,14 @@ public class Dice implements Runnable{
         this.player = p1;
     }
 
+    public void addArrow(Arrows arrow){
+        this.arrows = arrow;
+    }
+
     @Override
     public void run() {
-
+        arrows.stopUpAnimation();
+        arrows.startDownAnimation();
         Random rand = new Random();
         int num = rand.nextInt(6) + 1;
         FileInputStream[] inputStream = new FileInputStream[6];
@@ -48,6 +53,7 @@ public class Dice implements Runnable{
                 dice.setImage(image);
             }
         });
+
 
         player.play(num);
     }

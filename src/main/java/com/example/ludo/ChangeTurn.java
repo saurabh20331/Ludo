@@ -6,6 +6,7 @@ public class ChangeTurn {
     private final Dice d2;
     private final Player p1;
     private final Player p2;
+    Arrows arrow;
 
     public Player retP1(){
         return p1;
@@ -14,11 +15,12 @@ public class ChangeTurn {
         return p2;
     }
 
-    ChangeTurn(Dice d1, Dice d2, Player p1, Player p2){
+    ChangeTurn(Dice d1, Dice d2, Player p1, Player p2, Arrows arrow){
         this.d1 = d1;
         this.d2 = d2;
         this.p1 = p1;
         this.p2 = p2;
+        this.arrow = arrow;
     }
 
     public void enableDisable(boolean r1, boolean r2, boolean r3, boolean r4){

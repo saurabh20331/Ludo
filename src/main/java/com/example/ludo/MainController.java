@@ -5,7 +5,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class MainController {
-
     @FXML
     private ImageView dice1;
     @FXML
@@ -28,6 +27,12 @@ public class MainController {
     private ImageView green3;
     @FXML
     private ImageView green4;
+
+
+    @FXML
+    private ImageView arrowUp;
+    @FXML
+    private ImageView arrowDown;
 
     private Token[]  greenToken;
     private Token[]  blueToken;
@@ -62,10 +67,12 @@ public class MainController {
         blueToken[2] = new Token(blue3, "blue", blue3.getLayoutX(), blue3.getLayoutY());
         blueToken[3] = new Token(blue4, "blue", blue4.getLayoutX(), blue4.getLayoutY());
 
+        Arrows arrow = new Arrows(arrowUp, arrowDown);
+
         Player greenPlayer = new Player(greenToken);
         Player bluePlayer = new Player(blueToken);
 
-        ChangeTurn turn = new ChangeTurn(blueDice, greenDice, bluePlayer, greenPlayer);
+        ChangeTurn turn = new ChangeTurn(blueDice, greenDice, bluePlayer, greenPlayer, arrow);
         turn.enableDisable(true, false, false, false);
 
         greenPlayer.turnAdd(turn);
@@ -73,6 +80,9 @@ public class MainController {
 
         blueDice.playerAssociation(bluePlayer);
         greenDice.playerAssociation(greenPlayer);
+
+        blueDice.addArrow(arrow);
+        greenDice.addArrow(arrow);
     }
 
     public void blue1Clicked(MouseEvent mouseEvent) {
