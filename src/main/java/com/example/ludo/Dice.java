@@ -9,12 +9,17 @@ import java.util.Random;
 
 public class Dice implements Runnable{
 
-    public final ImageView dice;
+    private final ImageView dice;
+
+    public ImageView retDice(){
+        return dice;
+    }
+
     Dice(ImageView dice){
         this.dice = dice;
     }
-    Player player;
-    void playerAssociation(Player p1){
+    private Player player;
+    public void playerAssociation(Player p1){
         this.player = p1;
     }
 

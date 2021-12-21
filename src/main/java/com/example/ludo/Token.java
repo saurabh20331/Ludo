@@ -9,18 +9,35 @@ import java.util.Objects;
 
 public class Token implements Runnable{
 
-    double initialXPos;
-    double initialYPos;
-    int pos;
+    private final double initialXPos;
+    private final double initialYPos;
+    private int pos;
     int movePos;
-    boolean isHome;
-    boolean isSafe;
-    boolean isWon;
-    boolean isNearEnd;
-    ImageView main;
-    String color;
+    private boolean isHome;
+    private boolean isSafe;
+    private boolean isWon;
+    private boolean isNearEnd;
+    private final ImageView main;
+    private final String color;
     ChangeTurn turn;
-    TranslateTransition transition;
+    private final TranslateTransition transition;
+
+    public String retColor(){
+        return this.color;
+    }
+
+    public int retPos(){
+        return this.pos;
+    }
+    public boolean retIsHome(){
+        return this.isHome;
+    }
+    public boolean retIsNearEnd(){
+        return this.isNearEnd;
+    }
+    public ImageView retMain(){
+        return this.main;
+    }
 
     Token(ImageView main, String color, double initialPos, double initialYPos){
         this.main = main;
@@ -43,19 +60,19 @@ public class Token implements Runnable{
         transition.setByY(-10);
         transition.setAutoReverse(true);
     }
-    void addTurn(ChangeTurn ct){
+    public void addTurn(ChangeTurn ct){
         this.turn = ct;
     }
 
-    void enableDisable(boolean res){
+    public void enableDisable(boolean res){
         main.setDisable(res);
     }
 
-    void playAnimation(){
+    public void playAnimation(){
         transition.play();
     }
 
-    void stopAnimation(){
+    public void stopAnimation(){
         transition.jumpTo(Duration.ZERO);
         transition.stop();
     }
@@ -122,18 +139,18 @@ public class Token implements Runnable{
                 //Blue token over Green token
                 if(Objects.equals(this.color, "blue")){
                     for(int i=0; i<4; ++i){
-                        if(this.pos == this.turn.p2.tokens[i].pos && !this.turn.p2.tokens[i].isSafe){
+                        if(this.pos == this.turn.retP2().tokens[i].pos && !this.turn.retP2().tokens[i].isSafe){
                             int finalI = i;
                             int finalI1 = i;
                             Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
                                     //System.out.println("YES");
-                                    turn.p2.tokens[finalI].main.setLayoutX(turn.p2.tokens[finalI1].initialXPos);
-                                    turn.p2.tokens[finalI].main.setLayoutY(turn.p2.tokens[finalI].initialYPos);
-                                    turn.p2.tokens[finalI].isHome = true;
-                                    turn.p2.tokens[finalI].isSafe = true;
-                                    turn.p2.tokens[finalI].pos = 26;
+                                    turn.retP2().tokens[finalI].main.setLayoutX(turn.retP2().tokens[finalI1].initialXPos);
+                                    turn.retP2().tokens[finalI].main.setLayoutY(turn.retP2().tokens[finalI].initialYPos);
+                                    turn.retP2().tokens[finalI].isHome = true;
+                                    turn.retP2().tokens[finalI].isSafe = true;
+                                    turn.retP2().tokens[finalI].pos = 26;
                                 }
                             });
                         }
@@ -143,18 +160,18 @@ public class Token implements Runnable{
                 //Green token over blue token
                 else{
                     for(int i=0; i<4; ++i){
-                        if(this.pos == this.turn.p1.tokens[i].pos && !this.turn.p1.tokens[i].isSafe){
+                        if(this.pos == this.turn.retP1().tokens[i].pos && !this.turn.retP1().tokens[i].isSafe){
                             int finalI = i;
                             int finalI1 = i;
                             Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
                                     //System.out.println("No");
-                                    turn.p1.tokens[finalI].main.setLayoutX(turn.p1.tokens[finalI1].initialXPos);
-                                    turn.p1.tokens[finalI].main.setLayoutY(turn.p1.tokens[finalI].initialYPos);
-                                    turn.p1.tokens[finalI].isHome = true;
-                                    turn.p1.tokens[finalI].isSafe = true;
-                                    turn.p1.tokens[finalI].pos = 0;
+                                    turn.retP1().tokens[finalI].main.setLayoutX(turn.retP1().tokens[finalI1].initialXPos);
+                                    turn.retP1().tokens[finalI].main.setLayoutY(turn.retP1().tokens[finalI].initialYPos);
+                                    turn.retP1().tokens[finalI].isHome = true;
+                                    turn.retP1().tokens[finalI].isSafe = true;
+                                    turn.retP1().tokens[finalI].pos = 0;
                                 }
                             });
                         }

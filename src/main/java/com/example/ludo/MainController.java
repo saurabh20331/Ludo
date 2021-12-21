@@ -1,12 +1,10 @@
 package com.example.ludo;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class HelloController {
+public class MainController {
 
     @FXML
     private ImageView dice1;
@@ -31,12 +29,10 @@ public class HelloController {
     @FXML
     private ImageView green4;
 
-    Token[]  greenToken;
-    Token[]  blueToken;
-    Player greenPlayer;
-    Player bluePlayer;
-    Dice blueDice;
-    Dice greenDice;
+    private Token[]  greenToken;
+    private Token[]  blueToken;
+    private Dice blueDice;
+    private Dice greenDice;
 
 
     public void dice1Clicked(MouseEvent mouseEvent) {
@@ -66,8 +62,8 @@ public class HelloController {
         blueToken[2] = new Token(blue3, "blue", blue3.getLayoutX(), blue3.getLayoutY());
         blueToken[3] = new Token(blue4, "blue", blue4.getLayoutX(), blue4.getLayoutY());
 
-        greenPlayer = new Player(greenToken);
-        bluePlayer = new Player(blueToken);
+        Player greenPlayer = new Player(greenToken);
+        Player bluePlayer = new Player(blueToken);
 
         ChangeTurn turn = new ChangeTurn(blueDice, greenDice, bluePlayer, greenPlayer);
         turn.enableDisable(true, false, false, false);
