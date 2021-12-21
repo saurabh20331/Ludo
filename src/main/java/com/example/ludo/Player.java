@@ -44,6 +44,8 @@ public class Player {
                 tokens[i].enableDisable(false);
                 autoMov = i;
             }
+            if(!tokens[i].main.isDisabled())
+                tokens[i].playAnimation();
         }
         if(numOfDisabled == 4){
             if(Objects.equals(this.tokens[0].color, "blue")){

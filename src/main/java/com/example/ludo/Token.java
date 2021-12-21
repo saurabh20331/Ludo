@@ -1,7 +1,9 @@
 package com.example.ludo;
 
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 import java.util.Objects;
 
@@ -18,6 +20,7 @@ public class Token implements Runnable{
     ImageView main;
     String color;
     ChangeTurn turn;
+    TranslateTransition transition;
 
     Token(ImageView main, String color, double initialPos, double initialYPos){
         this.main = main;
@@ -33,6 +36,12 @@ public class Token implements Runnable{
         this.initialXPos = initialPos;
         this.initialYPos = initialYPos;
 
+        transition = new TranslateTransition();
+        transition.setNode(main);
+        transition.setDuration(Duration.millis(500));
+        transition.setCycleCount(TranslateTransition.INDEFINITE);
+        transition.setByY(-10);
+        transition.setAutoReverse(true);
     }
     void addTurn(ChangeTurn ct){
         this.turn = ct;
@@ -42,13 +51,21 @@ public class Token implements Runnable{
         main.setDisable(res);
     }
 
+    void playAnimation(){
+        transition.play();
+    }
+
+    void stopAnimation(){
+        transition.jumpTo(Duration.ZERO);
+        transition.stop();
+    }
 
 
     @Override
     public void run() {
         if(!main.isDisabled()){
+            turn.stopAllAnimations();
             BoardCoordinates b = new BoardCoordinates();
-
             //Movement of token
             //At home
             if(isHome){

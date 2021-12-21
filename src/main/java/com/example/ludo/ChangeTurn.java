@@ -24,5 +24,13 @@ public class ChangeTurn {
         for(int i=0; i<4; ++i){
             p2.tokens[i].main.setDisable(!r4);
         }
+
+    }
+
+    void stopAllAnimations(){
+        for(int i=0; i<4; ++i){
+            p1.tokens[i].stopAnimation();
+            p2.tokens[i].stopAnimation();
+        }
     }
 }
