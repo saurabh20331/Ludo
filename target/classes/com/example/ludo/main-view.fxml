@@ -63,7 +63,7 @@
                   <Image url="@dice1.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="dice2" fitHeight="86.0" fitWidth="85.0" layoutX="680.0" layoutY="33.0" onMouseClicked="#dice2Clicked" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="dice2" fitHeight="86.0" fitWidth="85.0" layoutX="680.0" layoutY="98.0" onMouseClicked="#dice2Clicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@dice2.png" />
                </image>
