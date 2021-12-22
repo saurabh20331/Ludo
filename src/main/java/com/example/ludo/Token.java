@@ -103,25 +103,26 @@ public class Token implements Runnable{
                         @Override
                         public void run() {
                             ++pos;
-                            if(pos == 52)
+                            if (pos == 52)
                                 pos = 0;
-                            if(Objects.equals(color, "blue") && pos == 51 || Objects.equals(color, "green") && pos == 25){
+                            if (Objects.equals(color, "blue") && pos == 51 || Objects.equals(color, "green") && pos == 25) {
                                 pos = 0;
                                 isNearEnd = true;
+                                isSafe = true;
                             }
-                            if(isNearEnd){
-                                if(Objects.equals(color, "blue")){
+                            if (isNearEnd) {
+                                if (Objects.equals(color, "blue")) {
                                     main.setLayoutX(b.blueWinning.get(pos).getKey());
                                     main.setLayoutY(b.blueWinning.get(pos).getValue());
-                                }
-                                else{
+                                } else {
                                     main.setLayoutX(b.greenWinning.get(pos).getKey());
                                     main.setLayoutY(b.greenWinning.get(pos).getValue());
                                 }
-                                if(pos == 5)
+                                if (pos == 5) {
                                     isWon = true;
-                            }
-                            else{
+                                    isSafe = true;
+                                }
+                            } else {
                                 main.setLayoutX(b.blocks.get(pos).getKey());
                                 main.setLayoutY(b.blocks.get(pos).getValue());
                             }
@@ -135,45 +136,49 @@ public class Token implements Runnable{
                     isSafe = b.safePlaces.contains(pos);
                 }
 
-
-                //Blue token over Green token
-                if(Objects.equals(this.color, "blue")){
-                    for(int i=0; i<4; ++i){
-                        if(this.pos == this.turn.retP2().tokens[i].pos && !this.turn.retP2().tokens[i].isSafe){
-                            int finalI = i;
-                            int finalI1 = i;
-                            Platform.runLater(new Runnable() {
-                                @Override
-                                public void run() {
-                                    //System.out.println("YES");
-                                    turn.retP2().tokens[finalI].main.setLayoutX(turn.retP2().tokens[finalI1].initialXPos);
-                                    turn.retP2().tokens[finalI].main.setLayoutY(turn.retP2().tokens[finalI].initialYPos);
-                                    turn.retP2().tokens[finalI].isHome = true;
-                                    turn.retP2().tokens[finalI].isSafe = true;
-                                    turn.retP2().tokens[finalI].pos = 26;
-                                }
-                            });
+                if (!this.isNearEnd) {
+                    //Blue token over Green token
+                    if (Objects.equals(this.color, "blue")) {
+                        for (int i = 0; i < 4; ++i) {
+                            System.out.println(this.turn.retP2().tokens[i].isSafe);
+                            if (this.pos == this.turn.retP2().tokens[i].pos && !this.turn.retP2().tokens[i].isSafe) {
+                                int finalI = i;
+                                int finalI1 = i;
+                                Platform.runLater(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        //System.out.println("YES");
+                                        turn.retP2().tokens[finalI].main.setLayoutX(turn.retP2().tokens[finalI1].initialXPos);
+                                        turn.retP2().tokens[finalI].main.setLayoutY(turn.retP2().tokens[finalI].initialYPos);
+                                        turn.retP2().tokens[finalI].isHome = true;
+                                        turn.retP2().tokens[finalI].isSafe = true;
+                                        turn.retP2().tokens[finalI].isNearEnd = false;
+                                        turn.retP2().tokens[finalI].pos = 26;
+                                    }
+                                });
+                            }
                         }
                     }
-                }
 
-                //Green token over blue token
-                else{
-                    for(int i=0; i<4; ++i){
-                        if(this.pos == this.turn.retP1().tokens[i].pos && !this.turn.retP1().tokens[i].isSafe){
-                            int finalI = i;
-                            int finalI1 = i;
-                            Platform.runLater(new Runnable() {
-                                @Override
-                                public void run() {
-                                    //System.out.println("No");
-                                    turn.retP1().tokens[finalI].main.setLayoutX(turn.retP1().tokens[finalI1].initialXPos);
-                                    turn.retP1().tokens[finalI].main.setLayoutY(turn.retP1().tokens[finalI].initialYPos);
-                                    turn.retP1().tokens[finalI].isHome = true;
-                                    turn.retP1().tokens[finalI].isSafe = true;
-                                    turn.retP1().tokens[finalI].pos = 0;
-                                }
-                            });
+                    //Green token over blue token
+                    else {
+                        for (int i = 0; i < 4; ++i) {
+                            if (this.pos == this.turn.retP1().tokens[i].pos && !this.turn.retP1().tokens[i].isSafe) {
+                                int finalI = i;
+                                int finalI1 = i;
+                                Platform.runLater(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        //System.out.println("No");
+                                        turn.retP1().tokens[finalI].main.setLayoutX(turn.retP1().tokens[finalI1].initialXPos);
+                                        turn.retP1().tokens[finalI].main.setLayoutY(turn.retP1().tokens[finalI].initialYPos);
+                                        turn.retP1().tokens[finalI].isHome = true;
+                                        turn.retP1().tokens[finalI].isSafe = true;
+                                        turn.retP1().tokens[finalI].isNearEnd = false;
+                                        turn.retP1().tokens[finalI].pos = 0;
+                                    }
+                                });
+                            }
                         }
                     }
                 }
