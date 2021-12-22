@@ -140,7 +140,6 @@ public class Token implements Runnable{
                     //Blue token over Green token
                     if (Objects.equals(this.color, "blue")) {
                         for (int i = 0; i < 4; ++i) {
-                            System.out.println(this.turn.retP2().tokens[i].isSafe);
                             if (this.pos == this.turn.retP2().tokens[i].pos && !this.turn.retP2().tokens[i].isSafe) {
                                 int finalI = i;
                                 int finalI1 = i;
