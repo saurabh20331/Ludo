@@ -4,12 +4,12 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-public class Arrows {
+public class Arrows implements Runnable{
 
-    ImageView up;
-    ImageView down;
-    TranslateTransition transitionUp;
-    TranslateTransition transitionDown;
+    private final ImageView up;
+    private final ImageView down;
+    private final TranslateTransition transitionUp;
+    private final TranslateTransition transitionDown;
 
     Arrows(ImageView img1, ImageView img2){
         this.up = img1;
@@ -53,6 +53,8 @@ public class Arrows {
         transitionDown.stop();
     }
 
-
-
+    @Override
+    public void run() {
+        startDownAnimation();
+    }
 }

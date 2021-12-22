@@ -68,7 +68,9 @@ public class MainController {
         blueToken[3] = new Token(blue4, "blue", blue4.getLayoutX(), blue4.getLayoutY());
 
         Arrows arrow = new Arrows(arrowUp, arrowDown);
-
+        Thread th = new Thread(arrow);
+        th.start();
+        arrowUp.setVisible(false);
         Player greenPlayer = new Player(greenToken);
         Player bluePlayer = new Player(blueToken);
 
